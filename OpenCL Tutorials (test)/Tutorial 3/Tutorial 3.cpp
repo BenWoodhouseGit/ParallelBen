@@ -176,7 +176,7 @@ int main(int argc, char **argv) {
 		//std::cout << "A = " << A << std::endl;
 		//std::cout << "B = " << B << std::endl;
 		std::cout << "Max = " << C << std::endl;
-		std::cout << "Min  = " << D << std::endl;
+		std::cout << "Min  = " << D << std::endl; //needs change because minus issue (underflow)
 		std::cout << "Kernel execution time [ns]:" << kernel_event.getProfilingInfo<CL_PROFILING_COMMAND_END>() - kernel_event.getProfilingInfo<CL_PROFILING_COMMAND_START>() << std::endl;
 	}
 	catch (cl::Error err) {
