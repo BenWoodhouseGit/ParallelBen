@@ -126,7 +126,6 @@ __kernel void reduce_add_5(__global const int* A, __global int* B, __local int* 
 __kernel void min_finder(__global const int* A, __global int* B) {
 	int id = get_global_id(0);
 	int N = get_global_size(0);
-	float Min = 0;
 
 	B[id] = A[id];
 
@@ -152,7 +151,7 @@ __kernel void max_finder(__global const int* A, __global int* B) {
 	barrier(CLK_GLOBAL_MEM_FENCE);
 
 	for (int i = 1; i < N; i *= 2) { //i is a stride
-		if (!(id % (i * 2)) && ((id + i) < N) && (id != 20000)) 
+		if (!(id % (i * 2)) && ((id + i) < N) && (B[id] != 65535)) 
 		if (B[id] < B[id + i])
 			B[id] = B[id + i];
 

@@ -105,7 +105,7 @@ int main(int argc, char **argv) {
 		//this makes the code more efficient
 		size_t local_size = 32;// A.size();
 		size_t origin_A = A.size();
-		cout << A.size();
+		//cout << A.size();
 		size_t padding_size = A.size() % local_size;
 
 		//if the input vector is not a multiple of the local_size
@@ -173,10 +173,10 @@ int main(int argc, char **argv) {
 		queue.enqueueReadBuffer(buffer_C, CL_TRUE, 0, 2, &C[0]);
 		queue.enqueueReadBuffer(buffer_D, CL_TRUE, 0, 2, &D[0]);
 
-		std::cout << "A = " << A << std::endl;
-		std::cout << "B = " << B << std::endl;
+		//std::cout << "A = " << A << std::endl;
+		//std::cout << "B = " << B << std::endl;
 		std::cout << "Max = " << C << std::endl;
-		std::cout << "Min  = -" << D << std::endl;
+		std::cout << "Min  = " << D << std::endl;
 		std::cout << "Kernel execution time [ns]:" << kernel_event.getProfilingInfo<CL_PROFILING_COMMAND_END>() - kernel_event.getProfilingInfo<CL_PROFILING_COMMAND_START>() << std::endl;
 	}
 	catch (cl::Error err) {
